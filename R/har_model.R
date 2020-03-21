@@ -396,7 +396,7 @@ harModel <- function(data, periods = c(1,5,22), periodsJ = c(1,5,22), periodsQ =
 
     # Get continuous components if necessary RV measures if necessary:
     Cmatrix <- matrix(nrow = dim(RVmatrix1)[1], ncol = 1)
-    Cmatrix[Jindicators,]    <- RVmatrix2[Jindicators, 1]   #Fill with robust one in case of jump
+    Cmatrix[Jindicators]    <- RVmatrix2[Jindicators, 1]   #Fill with robust one in case of jump
     Cmatrix[(!Jindicators)]  <- RVmatrix1[(!Jindicators), 1] #Fill with non-robust one in case of no-jump
     # Aggregate again:
     Cmatrix <- har_agg(Cmatrix, periods, nperiods)
